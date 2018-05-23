@@ -1,0 +1,275 @@
+/* RESET */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+}
+
+
+@font-face {
+  font-family: 'ProximaNova-Semibold';
+  font-style: normal;
+  font-weight: 600;
+  src: url('./fonts/ProximaNova-Semibold.eot');
+  src: local('ProximaNova-Semibold'), local('ProximaNova-Semibold'),
+       url('./fonts/ProximaNova-Semibold.woff') format('woff'),
+       url('./fonts/ProximaNova-Semibold.ttf') format('truetype')
+}
+
+
+
+
+/* RESET */
+
+
+#MAIN {
+  margin-left: 60px;
+  transition: margin-left .5s;
+  padding: 10px;
+}
+
+
+
+
+/**************** SIDE MENU ***************/
+
+.SIDENAV_CONTAINER {
+  
+}
+
+.SIDENAV {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 60px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #134eb3;
+  transition: 0.5s;
+  padding-top: 10px;
+}
+
+.vertical_stripe {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 59px;
+  background-color: #fff;
+  width: 1px;
+  height: 100%;
+  opacity: 0.12;
+  z-index: 10;
+}
+
+.SIDENAV_TOP_CONTAINER {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+}
+
+.LOGO_CONTAINER {
+  margin: 15px auto;
+  font-size: 28px;
+  color: #fff;
+}
+
+.LOGO_CONTAINER > span {
+  padding-left: 15px;
+}
+
+.SIDENAV_TOP_CONTAINER > a  {
+  display: inline;
+  text-decoration: none;
+  padding-left: 15px;
+  opacity: 0.6;
+  font-size: 20px;
+  color: #aaa;
+  margin: 16px auto;
+  transition: 0.3s;
+}
+
+.SIDENAV_TOP_CONTAINER > a:hover {
+  color: #fff;
+  opacity: 1;
+}
+
+.SIDENAV_BOTTOM_CONTAINER {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  margin-bottom: 40px;
+}
+
+.SIDENAV_BOTTOM_CONTAINER > a {
+  display: inline;
+  text-decoration: none;
+  padding-left: 15px;
+  opacity: 0.6;
+  font-size: 20px;
+  color: #aaa;
+  margin: 16px auto;
+  transition: 0.3s;
+}
+
+.SIDENAV_BOTTOM_CONTAINER > a:hover {
+  color: #fff;
+  opacity: 1;
+} 
+
+.SIDENAV_BOTTOM_CONTAINER > a > div {
+  width: 28px;
+  height: 28px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.SIDENAV_BOTTOM_CONTAINER > a > div > img {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
+
+
+
+
+.SIDE_NAV_CONTENT_CONTAINER {
+  width: 0px;
+  background-color: #134eb3;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 60px;
+  transition: 0.5s;
+  padding-top: 10px;
+  overflow: hidden;
+}
+
+.closebtn {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  font-size: 32px;
+  color: #aaa;
+  z-index: 10;
+}
+
+.closebtn:hover {
+  cursor: pointer;
+  color: #999;
+}
+
+.visualize_contant {
+  
+}
+
+/*---------------- SIDE MENU CONTAINERS ----------------*/
+
+.ASSETS_CONTAINER {
+  margin: 20px;
+}
+
+.ASSETS_CONTAINER > span {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 100;
+}
+
+.ASSETS_CONTAINER > div {
+  margin-top: 20px;
+}
+
+.ASSETS_CONTAINER > div > span {
+  display: block;
+  margin-top: 15px;
+  color: #fff;
+  opacity: 0.3;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.ASSETS_CONTAINER > div > div {
+  margin: 10px 0px 5px 20px;
+  color: #aaa;
+}
+
+.ASSETS_CONTAINER > div > div > span {
+  display: block;
+  margin-top: 15px;
+  color: #fff;
+  opacity: 0.3;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+
+.USER_CONTAINER {
+  display: flex;
+  height: 100%;
+}
+
+.USER_CONTAINER_CONTENT {
+  align-self: flex-end;
+  margin-bottom: 40px;
+  margin-left: 20px;
+}
+
+.user_name {
+  
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 2.6;
+  color: #ffffff;
+}
+
+.user_smaller_text  {
+  margin-left: 15px;
+}
+.user_smaller_text > span {
+  display: block;
+  font-size: 16px;
+  line-height: 2.25;
+}
+
+.USER_CONTAINER_CONTENT  > div {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 2.25;
+  color: #7597d2;
+}
+
+
+
+/*---------------- SIDE MENU CONTAINERS ----------------*/
+
+
+/*---------------- SIDE MENU ----------------*/
+
+
+
+
+
+
+
+
+/**************** MAIN CONTAINER WRAPPER ***************/
+
+.MAIN_CONTAINER_WRAPPER {
+  
+}
+
+/*-------------- MAIN CONTAINER WRAPPER --------------*/
+
+
+
+
