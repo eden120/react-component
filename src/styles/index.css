@@ -27,9 +27,9 @@ body {
 
 
 #MAIN {
+  height: 100%;
   margin-left: 60px;
   transition: margin-left .5s;
-  padding: 10px;
 }
 
 
@@ -223,7 +223,6 @@ body {
 }
 
 .user_name {
-  
   font-size: 24px;
   font-weight: 300;
   line-height: 2.6;
@@ -262,11 +261,35 @@ body {
 
 /**************** MAIN CONTAINER WRAPPER ***************/
 
+
 .MAIN_CONTAINER_WRAPPER {
+  height: 100%;
+}
+
+
+.CUSTOMERS_CONTENT_WRAPPER {
+  display: flex;
+  height: 100%;
+  background-color: #f9f9f9;
   
 }
 
+
 /*-------------- MAIN CONTAINER WRAPPER --------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

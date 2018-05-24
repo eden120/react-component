@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import CustomersFilters from './CustomersFilters';
+import CustomersMainContent from './CustomersMainContent';
 
-export default class Customers extends Component {
+
+
+
+class Customers extends Component {
   constructor(props) {
     super(props);
 
@@ -11,8 +16,13 @@ export default class Customers extends Component {
   render() {
     return (
       <div className="MAIN_CONTAINER_WRAPPER">
-        Customers container
+        <div className="CUSTOMERS_CONTENT_WRAPPER">
+          <CustomersFilters />
+          <CustomersMainContent />
+        </div>
       </div>
     );
   }
 }
+
+export default Customers

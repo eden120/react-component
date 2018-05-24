@@ -9,6 +9,8 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 
 
 import './styles/index.css';
+import './styles/filters.css';
+import './styles/main_content.css';
 import Home from './components/Home';
 import rootReducer from './reducers/rootReducer'
 import registerServiceWorker from './registerServiceWorker';

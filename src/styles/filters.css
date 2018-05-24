@@ -1,0 +1,170 @@
+.CUSTOMERS_FILTERS_CONTAINER {
+  min-height: 100vh;
+  overflow: auto;
+  width: 250px;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+
+.CUSTOMERS_FILTERS_WRAPPER {
+  padding: 30px;
+}
+
+
+.customers_header {
+  font-size: 20px;
+}
+
+/***************************************************/
+
+.filter_header_container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.filter_header_container > span:nth-child(1) {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/***************************************************/
+
+.filter_icon_and_text_and_gray_text {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin: 10px auto;
+}
+
+.filter_icon_and_text_and_gray_text > span:nth-child(1) {
+  padding-right: 6px;
+  font-size: 14px;
+}
+.filter_icon_and_text_and_gray_text > span:nth-child(2) {
+  padding-right: 6px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.filter_icon_and_text_and_gray_text > span:nth-child(3) {
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: gray;
+}
+
+/***************************************************/
+
+.filter_horizontal_stripe {
+  width: 100%;
+  height: 1px;
+  margin: 30px auto;
+  background-color: #d8d8d8;
+}
+
+/***************************************************/
+
+.filter_icon_and_text {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin: 10px auto;
+}
+
+.filter_icon_and_text > span:nth-child(1) {
+  padding-right: 6px;
+  font-size: 14px;
+}
+.filter_icon_and_text > span:nth-child(2) {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/***************************************************/
+
+.filter_sub_header_container {
+  margin: 20px 0px 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #454f4e;
+  opacity: 0.8;
+}
+
+
+
+/***************************************************/
+
+
+/* overriding default plugin's functionality */
+.input_range_container {
+  margin: 20px 5px;
+}
+
+.input-range__slider {
+  border: 1px solid #999 !important;
+  background: #fff !important;
+}
+
+.input-range__track--active {
+  background: #0ca0ef !important;
+}
+
+.input-range__label--min, 
+.input-range__label--max {
+  display: none;
+}
+
+
+/***************************************************/
+
+.filter_select {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.filter_select > span {
+  padding-right: 6px;
+  font-size: 14px;
+}
+
+/* overriding default plugin's functionality */
+.Select {
+  width: 100% !important;
+  height: 24px !important;
+}
+
+.Select-control {
+  height: 24px !important;
+}
+
+.Select-value {
+  padding-left: 5px !important;
+  font-size: 14px !important;
+  line-height: 26px !important;
+  background-color: #f9f9f9;
+}
+
+.Select-placeholder {
+  font-size: 14px !important;
+  line-height: 26px !important;
+  background-color: #f9f9f9;
+}
+
+.Select-clear {
+  padding-top: 1px;
+  line-height: 24px !important;
+}
+
+.Select-input {
+  height: 24px !important;
+  font-size: 14px !important;
+  background-color: #f9f9f9;
+}
+
+/***************************************************/
+
+
+
+/***************************************************/
+
+
