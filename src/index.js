@@ -30,7 +30,7 @@ const App = props => (
     <BrowserRouter>
       <Switch>
         <Route path='/app' component={Home}/>
-        <Redirect to='/app' />
+        <Redirect to='/app/customers' />
       </Switch>
     </BrowserRouter>
   </Provider>

@@ -51,9 +51,10 @@ body {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #134eb3;
   transition: 0.5s;
   padding-top: 10px;
+  overflow: hidden;
+  background-color: #134eb3;
 }
 
 .vertical_stripe {
@@ -61,11 +62,11 @@ body {
   top: 0;
   bottom: 0;
   left: 59px;
-  background-color: #fff;
   width: 1px;
   height: 100%;
   opacity: 0.12;
   z-index: 10;
+  background-color: #fff;
 }
 
 .SIDENAV_TOP_CONTAINER {
@@ -139,9 +140,6 @@ body {
 
 
 
-
-
-
 .SIDE_NAV_CONTENT_CONTAINER {
   width: 0px;
   background-color: #134eb3;
@@ -169,7 +167,7 @@ body {
   color: #999;
 }
 
-.visualize_contant {
+.visualize_content {
   
 }
 
