@@ -232,5 +232,77 @@
     "opted_In": "true",
     "location": "Loc Angeles, CA",
     "customer_since": "1/1/2018"
+  },
+  {
+    "customer_ID": "982400",
+    "activeness": "New",
+    "sales": 650,
+    "transactions": 238,
+    "opted_In": "true",
+    "location": "Loc Angeles, CA",
+    "customer_since": "1/1/2018"
+  },
+  {
+    "customer_ID": "982401",
+    "activeness": "New",
+    "sales": 650,
+    "transactions": 238,
+    "opted_In": "true",
+    "location": "Loc Angeles, CA",
+    "customer_since": "1/1/2018"
+  },
+  {
+    "customer_ID": "982402",
+    "activeness": "New",
+    "sales": 650,
+    "transactions": 238,
+    "opted_In": "true",
+    "location": "Loc Angeles, CA",
+    "customer_since": "1/1/2018"
+  },
+  {
+    "customer_ID": "982403",
+    "activeness": "New",
+    "sales": 650,
+    "transactions": 238,
+    "opted_In": "true",
+    "location": "Loc Angeles, CA",
+    "customer_since": "1/1/2018"
+  },
+  {
+    "customer_ID": "982404",
+    "activeness": "New",
+    "sales": 650,
+    "transactions": 238,
+    "opted_In": "true",
+    "location": "Loc Angeles, CA",
+    "customer_since": "1/1/2018"
+  },
+  {
+    "customer_ID": "982405",
+    "activeness": "New",
+    "sales": 650,
+    "transactions": 238,
+    "opted_In": "true",
+    "location": "Loc Angeles, CA",
+    "customer_since": "1/1/2018"
+  },
+  {
+    "customer_ID": "982406",
+    "activeness": "New",
+    "sales": 650,
+    "transactions": 238,
+    "opted_In": "true",
+    "location": "Loc Angeles, CA",
+    "customer_since": "1/1/2018"
+  },
+  {
+    "customer_ID": "982407",
+    "activeness": "New",
+    "sales": 650,
+    "transactions": 238,
+    "opted_In": "true",
+    "location": "Loc Angeles, CA",
+    "customer_since": "1/1/2018"
   }
 ]

@@ -5,8 +5,6 @@ import 'react-input-range/lib/css/index.css';
 
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
-// import CustomersFilters from './CustomersFilters';
-// import CustomersMainContent from './CustomersMainContent';
 
 
 
@@ -79,7 +77,8 @@ class CustomersFilters extends Component {
       start_date, 
       end_date 
     } = this.state;
-    //console.log(start_date);
+    
+    
     return (
       <div className="CUSTOMERS_FILTERS_CONTAINER">
         
@@ -277,7 +276,6 @@ class CustomersFilters extends Component {
               <div>Start</div>
               <div>
                 <input type="date" value={start_date} onChange={this.handleStartDate.bind(this)} />
-                {/* <span><i className="far fa-question-circle"></i></span> */}
               </div>
             </div>
             
@@ -285,7 +283,6 @@ class CustomersFilters extends Component {
               <div>End</div>
               <div>
                 <input type="date" value={end_date} onChange={this.handleEndDate.bind(this)} />
-                {/* <span><i className="far fa-question-circle"></i></span> */}
               </div>
             </div>
             

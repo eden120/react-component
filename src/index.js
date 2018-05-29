@@ -8,7 +8,7 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 
-import './styles/index.css';
+import './styles/side_menu.css';
 import './styles/filters.css';
 import './styles/main_content.css';
 import Home from './components/Home';

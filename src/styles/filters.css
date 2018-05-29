@@ -1,8 +1,7 @@
 .CUSTOMERS_FILTERS_CONTAINER {
-  height: 110vh;
+  height: calc(100vh + 100px);
   overflow: auto;
   width: 260px;
-  /* border: 1px solid black; */
   overflow-x: hidden;
   box-sizing: border-box;
 }
@@ -47,6 +46,10 @@
   font-size: 12px;
   font-weight: 500;
 }
+
+.filter_icon_and_text_and_gray_text > span:nth-child(2):hover {
+  cursor: pointer;
+}
 .filter_icon_and_text_and_gray_text > span:nth-child(3) {
   font-size: 10px;
   letter-spacing: 1px;
@@ -78,6 +81,10 @@
 .filter_icon_and_text > span:nth-child(2) {
   font-size: 12px;
   font-weight: 500;
+}
+
+.filter_icon_and_text > span:nth-child(2):hover {
+  cursor: pointer;
 }
 
 /***************************************************/
@@ -272,16 +279,8 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 /***************************************************/
+
+
+
 
