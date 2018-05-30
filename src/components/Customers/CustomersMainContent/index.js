@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import SearchInput, { createFilter } from 'react-search-input';
 import Pagination from "react-js-pagination";
+import Select from 'react-select';
+import 'react-select/dist/react-select.css';
+
 import data from '../../../mocks/data.json';
 
 
 
-const KEYS_TO_FILTERS = ['customer_ID', 'sales'];
+
 
 class CustomersMainContent extends Component {
   constructor(props) {
@@ -13,43 +15,73 @@ class CustomersMainContent extends Component {
     
     this.state = {
       data: data,
-      paginatedData: [],
+      renderedData: null,
+      searchedTempData: null,
+      uniqueLocations: null,
       itemsPerPage: 12,
-      searchTerm: '',
-      activePage: 1
+      activePage: 1,
+      value: null
     }
   }
 
-
-  componentDidMount() {
-    const { data, itemsPerPage, activePage } = this.state;
+  
+  componentWillMount() {
+    const { data, itemsPerPage } = this.state;
     const copyOfData = Object.assign([], data);
   
-    const tempData = copyOfData.slice(0, 1 * itemsPerPage);
-  
-    this.setState({ paginatedData: tempData });
-  }
-  
-
-  searchUpdated (term) {
-    this.setState({ searchTerm: term })
+    // searching for unique locations
+    const uniqueLocations = [...new Set(data.map(obj => obj.location))];
+    
+    // converting array of strings to array of objects
+    const uniqueLocationObjects = uniqueLocations.map(item => {
+      return { label: item }
+    });
+    
+    this.setState({ renderedData: copyOfData, uniqueLocations: uniqueLocationObjects });
   }
   
   
   handlePageChange(pageNumber) {
-    const { data, itemsPerPage } = this.state;
-    const copyOfData = Object.assign([], data);
-    
-    const tempData = copyOfData.slice(itemsPerPage * (pageNumber - 1), pageNumber * itemsPerPage);
-      
-    this.setState({ paginatedData: tempData, activePage: pageNumber })
+    this.setState({ activePage: pageNumber })
   }
+  
+  
+  handleSearchChange = (value) => {
+    this.setState({ value: value }, () => {
+      
+      // saving selector to constant to optimize performance
+      const multiValueSelector = document.querySelector(".customers_search_container .Select-multi-value-wrapper");
+      
+      if(value.length) {
+        let searchedLocations = [];
+        value.map((el, index) => {
+          const tempLocations = this.state.data.filter(item => {
+            return item.location === value[index].label
+          });
+          searchedLocations = searchedLocations.concat(tempLocations);
+        });
+        
+        if(multiValueSelector.style.display !== 'block') {
+          multiValueSelector.style.cssText = `display: block !important; width: 290px; position: absolute; top: 25px; left: -1px; marginTop: 3px;`;
+        }
+        this.setState({ searchedTempData: searchedLocations })
+      } else {
+        multiValueSelector.style.cssText = '';
+        this.setState({ renderedData: this.state.data })
+      }
+    })
+  }
+  
+  
+  applySearch(e) {
+    this.setState({ renderedData: this.state.searchedTempData })
+  }
+  
 
 
   render() {
-    const filteredData = this.state.paginatedData.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS));
-    
-    const { data, itemsPerPage, activePage } = this.state;
+    const { data, renderedData, uniqueLocations, itemsPerPage, activePage, value } = this.state;
+    const pageRangeDisplayed = Math.ceil(renderedData.length / itemsPerPage);
     
     return (
       <div className="CUSTOMERS_MAIN_CONTAINER">
@@ -62,10 +94,21 @@ class CustomersMainContent extends Component {
           </button>
         </div>
         
+        
         <div className="customers_search_container">
-          <SearchInput className="customers_search_input" onChange={this.searchUpdated.bind(this)} />
-          <span><i className="fas fa-search"></i></span>
+          <Select
+            value={value}
+            valueKey="label" 
+            labelKey="label"
+            multi={true}
+            onChange={this.handleSearchChange.bind(this)}
+            options={uniqueLocations}
+          />
+          <div className="apply_button_container">
+            <button onClick={this.applySearch.bind(this)}>Apply</button>
+          </div>
         </div>
+        
         
         
         <table id="CUSTOMERS_TABLE" className="bordered">
@@ -83,10 +126,8 @@ class CustomersMainContent extends Component {
             </tr>
           </thead>
           
-          
-          
           <tbody>
-            {filteredData.map(data => {
+            {renderedData.slice(itemsPerPage * (activePage - 1), activePage * itemsPerPage).map(data => {
               return (
                 <tr className="CUSTOMERS_TABLE_BODY" key={data.customer_ID}>
                   <td> <span><i className="far fa-question-circle"></i></span> {data.customer_ID}</td>
@@ -113,8 +154,8 @@ class CustomersMainContent extends Component {
           <Pagination
             activePage={activePage}
             itemsCountPerPage={itemsPerPage}
-            totalItemsCount={data.length}
-            pageRangeDisplayed={10}
+            totalItemsCount={renderedData.length}
+            pageRangeDisplayed={pageRangeDisplayed}
             prevPageText={'Prev'}
             nextPageText={'Next'}
             itemClass={'customers_pagination_item_class'}
@@ -135,4 +176,6 @@ class CustomersMainContent extends Component {
   }
 }
 
+
 export default CustomersMainContent
+

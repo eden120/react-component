@@ -258,7 +258,6 @@ class CustomersFilters extends Component {
             />
           </div>
           
-          
           <div className="filter_horizontal_stripe"></div>
           
           
@@ -267,7 +266,7 @@ class CustomersFilters extends Component {
           
           <div className="filter_header_container">
             <span>Purchases</span>
-            <span><i class="far fa-question-circle"></i></span>
+            <span><i className="far fa-question-circle"></i></span>
           </div>
           
           <div className="start_end_container">

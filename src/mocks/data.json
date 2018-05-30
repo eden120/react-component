@@ -14,16 +14,16 @@
     "sales": 100,
     "transactions": 238,
     "opted_In": "true",
-    "location": "Loc Angeles, CA",
+    "location": "Chicago, IL",
     "customer_since": "1/1/2018"
   },
   {
     "customer_ID": "982376",
     "activeness": "New",
-    "sales": 650,
+    "sales": 450,
     "transactions": 238,
     "opted_In": "true",
-    "location": "Loc Angeles, CA",
+    "location": "New York, NY",
     "customer_since": "1/1/2018"
   },
   {
@@ -32,13 +32,13 @@
     "sales": 650,
     "transactions": 238,
     "opted_In": "true",
-    "location": "Loc Angeles, CA",
+    "location": "Washington, DC",
     "customer_since": "1/1/2018"
   },
   {
     "customer_ID": "982378",
     "activeness": "New",
-    "sales": 650,
+    "sales": 660,
     "transactions": 238,
     "opted_In": "true",
     "location": "Loc Angeles, CA",
@@ -50,22 +50,22 @@
     "sales": 650,
     "transactions": 238,
     "opted_In": "true",
-    "location": "Loc Angeles, CA",
+    "location": "San Fransicso, CA",
     "customer_since": "1/1/2018"
   },
   {
     "customer_ID": "982380",
     "activeness": "New",
-    "sales": 650,
+    "sales": 6880,
     "transactions": 238,
     "opted_In": "true",
-    "location": "Loc Angeles, CA",
+    "location": "Philadelphia, PH",
     "customer_since": "1/1/2018"
   },
   {
     "customer_ID": "982381",
     "activeness": "New",
-    "sales": 650,
+    "sales": 820,
     "transactions": 238,
     "opted_In": "true",
     "location": "Loc Angeles, CA",
@@ -74,25 +74,25 @@
   {
     "customer_ID": "982382",
     "activeness": "New",
-    "sales": 650,
+    "sales": 1150,
     "transactions": 238,
     "opted_In": "true",
-    "location": "Loc Angeles, CA",
+    "location": "Washington, DC",
     "customer_since": "1/1/2018"
   },
   {
     "customer_ID": "982383",
     "activeness": "New",
-    "sales": 650,
+    "sales": 5650,
     "transactions": 238,
     "opted_In": "true",
-    "location": "Loc Angeles, CA",
+    "location": "Miami, FL",
     "customer_since": "1/1/2018"
   },
   {
     "customer_ID": "982384",
     "activeness": "New",
-    "sales": 650,
+    "sales": 1650,
     "transactions": 238,
     "opted_In": "true",
     "location": "Loc Angeles, CA",
@@ -101,7 +101,7 @@
   {
     "customer_ID": "982385",
     "activeness": "New",
-    "sales": 650,
+    "sales": 100,
     "transactions": 238,
     "opted_In": "true",
     "location": "Loc Angeles, CA",
@@ -110,7 +110,7 @@
   {
     "customer_ID": "982386",
     "activeness": "New",
-    "sales": 650,
+    "sales": 750,
     "transactions": 238,
     "opted_In": "true",
     "location": "Loc Angeles, CA",
@@ -128,7 +128,7 @@
   {
     "customer_ID": "982388",
     "activeness": "New",
-    "sales": 650,
+    "sales": 700,
     "transactions": 238,
     "opted_In": "true",
     "location": "Loc Angeles, CA",
@@ -137,19 +137,19 @@
   {
     "customer_ID": "982389",
     "activeness": "New",
-    "sales": 650,
+    "sales": 900,
     "transactions": 238,
     "opted_In": "true",
-    "location": "Loc Angeles, CA",
+    "location": "Boston, MS",
     "customer_since": "1/1/2018"
   },
   {
     "customer_ID": "982390",
     "activeness": "New",
-    "sales": 650,
+    "sales": 110,
     "transactions": 238,
     "opted_In": "true",
-    "location": "Loc Angeles, CA",
+    "location": "Miami, FL",
     "customer_since": "1/1/2018"
   },
   {
@@ -158,13 +158,13 @@
     "sales": 650,
     "transactions": 238,
     "opted_In": "true",
-    "location": "Loc Angeles, CA",
+    "location": "Austin, TX",
     "customer_since": "1/1/2018"
   },
   {
     "customer_ID": "982392",
     "activeness": "New",
-    "sales": 650,
+    "sales": 730,
     "transactions": 238,
     "opted_In": "true",
     "location": "Loc Angeles, CA",
@@ -182,7 +182,7 @@
   {
     "customer_ID": "982394",
     "activeness": "New",
-    "sales": 650,
+    "sales": 1350,
     "transactions": 238,
     "opted_In": "true",
     "location": "Loc Angeles, CA",
@@ -191,46 +191,46 @@
   {
     "customer_ID": "982395",
     "activeness": "New",
-    "sales": 650,
+    "sales": 20,
     "transactions": 238,
     "opted_In": "true",
-    "location": "Loc Angeles, CA",
+    "location": "Austin, TX",
     "customer_since": "1/1/2018"
   },
   {
     "customer_ID": "982396",
     "activeness": "New",
-    "sales": 650,
+    "sales": 50,
     "transactions": 238,
     "opted_In": "true",
-    "location": "Loc Angeles, CA",
+    "location": "Las Vegas, NW",
     "customer_since": "1/1/2018"
   },
   {
     "customer_ID": "982397",
     "activeness": "New",
-    "sales": 650,
+    "sales": 150,
     "transactions": 238,
     "opted_In": "true",
-    "location": "Loc Angeles, CA",
+    "location": "Las Vegas, NW",
     "customer_since": "1/1/2018"
   },
   {
     "customer_ID": "982398",
     "activeness": "New",
-    "sales": 650,
+    "sales": 1050,
     "transactions": 238,
     "opted_In": "true",
-    "location": "Loc Angeles, CA",
+    "location": "Miami, FL",
     "customer_since": "1/1/2018"
   },
   {
     "customer_ID": "982399",
     "activeness": "New",
-    "sales": 650,
+    "sales": 12300,
     "transactions": 238,
     "opted_In": "true",
-    "location": "Loc Angeles, CA",
+    "location": "Boston, MS",
     "customer_since": "1/1/2018"
   },
   {
@@ -239,13 +239,13 @@
     "sales": 650,
     "transactions": 238,
     "opted_In": "true",
-    "location": "Loc Angeles, CA",
+    "location": "Philadelphia, PH",
     "customer_since": "1/1/2018"
   },
   {
     "customer_ID": "982401",
     "activeness": "New",
-    "sales": 650,
+    "sales": 850,
     "transactions": 238,
     "opted_In": "true",
     "location": "Loc Angeles, CA",
@@ -254,10 +254,10 @@
   {
     "customer_ID": "982402",
     "activeness": "New",
-    "sales": 650,
+    "sales": 1250,
     "transactions": 238,
     "opted_In": "true",
-    "location": "Loc Angeles, CA",
+    "location": "San Fransicso, CA",
     "customer_since": "1/1/2018"
   },
   {
@@ -266,7 +266,7 @@
     "sales": 650,
     "transactions": 238,
     "opted_In": "true",
-    "location": "Loc Angeles, CA",
+    "location": "Sietl, WD",
     "customer_since": "1/1/2018"
   },
   {
@@ -275,7 +275,7 @@
     "sales": 650,
     "transactions": 238,
     "opted_In": "true",
-    "location": "Loc Angeles, CA",
+    "location": "New York, NY",
     "customer_since": "1/1/2018"
   },
   {
@@ -290,19 +290,19 @@
   {
     "customer_ID": "982406",
     "activeness": "New",
-    "sales": 650,
+    "sales": 40,
     "transactions": 238,
     "opted_In": "true",
-    "location": "Loc Angeles, CA",
+    "location": "Sietl, WD",
     "customer_since": "1/1/2018"
   },
   {
     "customer_ID": "982407",
     "activeness": "New",
-    "sales": 650,
+    "sales": 250,
     "transactions": 238,
     "opted_In": "true",
-    "location": "Loc Angeles, CA",
+    "location": "Boston, MS",
     "customer_since": "1/1/2018"
   }
 ]
