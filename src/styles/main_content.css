@@ -49,13 +49,45 @@
 
 /***************************************************/
 
-.customers_search_container {
+/* .customers_search_container {
   display: flex;
   justify-content: flex-start;
-  width: 350px;
+  width: 300px;
+} */
+
+
+.customers_search_container {
+  position: relative;
 }
 
-.customers_search_container .Select-multi-value-wrapper {
+.customers_search_input {
+  height: 32px;
+}
+
+.customers_search_input > input {
+  width: 220px;
+  height: 32px;
+  padding: 8px 8px 8px 25px;
+  font-size: 13px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.customers_search_input > input:focus{
+  outline: none;
+}
+
+.customers_search_container > span {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 13px;
+  color: #a1a1a1;
+}
+
+
+/* .customers_search_container .Select-multi-value-wrapper {
   border: 1px solid #cecece;
   border-radius: 3px;
   background-color: #f9f9f9;
@@ -89,7 +121,7 @@
 
 .apply_button_container > button:hover {
   cursor: pointer;
-}
+} */
 
 
 /***************************************************/

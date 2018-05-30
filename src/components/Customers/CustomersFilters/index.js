@@ -6,6 +6,7 @@ import 'react-input-range/lib/css/index.css';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 
+import { cities } from '../../../mocks/cities.js';
 
 
 
@@ -15,7 +16,8 @@ class CustomersFilters extends Component {
 
     this.state = {
       database_cource: "Other Database",
-      search_locations: "",
+      location: null,
+      locations_array: [{'city': 'Chicago', 'state': 'Illinois'},{'city': 'Los Angeles', 'state': 'California'}],
       gender: "All",
       
       age_range_value: {
@@ -40,6 +42,11 @@ class CustomersFilters extends Component {
     
   }
   
+  componentWillMount() {
+    // console.log("cities");
+    // console.log(cities);
+  }
+  
   
   handleChangeSource = (database_cource) => {
     this.setState({ database_cource });
@@ -50,8 +57,16 @@ class CustomersFilters extends Component {
   }
   
   
-  handleLocationsSearch(e) {
-    this.setState({ search_locations: e.target.value });
+  handleLocationsSearch = (location) => {
+    console.log(location);
+    this.setState({ locations_array: [...this.state.locations_array, location] }, () => {
+      console.log(this.state.locations_array);
+    });
+  }
+  
+  removeLocation(index, e) {
+    const tempLocations_array = this.state.locations_array.splice(index, 1);
+    this.setState({ locations_array: this.state.locations_array });
   }
   
   
@@ -63,12 +78,13 @@ class CustomersFilters extends Component {
     this.setState({ end_date: e.target.value });
   }
   
-
-
+  
+  
   render() {
     const { 
       database_cource, 
-      search_locations, 
+      location, 
+      locations_array, 
       gender, 
       sales_range_value, 
       transactions_range_value, 
@@ -77,6 +93,7 @@ class CustomersFilters extends Component {
       start_date, 
       end_date 
     } = this.state;
+    
     
     
     return (
@@ -132,20 +149,31 @@ class CustomersFilters extends Component {
             <span><i className="far fa-question-circle"></i></span>
           </div>
           
-          <div className="search_input_container">
-            <input type="text" value={search_locations} placeholder="Search" onChange={this.handleLocationsSearch.bind(this)} />
+          <div className="locations_search_input_container">
+            <Select
+              value={location}
+              valueKey="city" 
+              labelKey="city"
+              placeholder="Search"
+              onChange={this.handleLocationsSearch.bind(this)}
+              options={cities}
+            />
             <span><i className="fas fa-search"></i></span>
           </div>
           
-          <div className="filter_icon_and_text">
-            <span><i className="far fa-question-circle"></i></span>
-            <span>Chicago DMA</span>
-          </div>
           
-          <div className="filter_icon_and_text">
-            <span><i className="far fa-question-circle"></i></span>
-            <span>Los Angeles DMA</span>
-          </div>
+          
+          {
+            locations_array.map((item, index) => (
+              <div key={item.city} className="filter_locations_icon_and_text">
+                <div>
+                  <span><i className="far fa-question-circle"></i></span>
+                  <span>{item.city}</span>
+                </div>
+                <div onClick={this.removeLocation.bind(this, index)}>&times;</div>
+              </div>
+            ))
+          }
           
           <div className="filter_horizontal_stripe"></div>
           
