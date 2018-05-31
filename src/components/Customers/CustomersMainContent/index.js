@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import SearchInput, { createFilter } from 'react-search-input';
 import Pagination from "react-js-pagination";
 import data from '../../../mocks/data.json';
@@ -13,7 +14,7 @@ class CustomersMainContent extends Component {
     
     this.state = {
       data: data,
-      paginatedData: [],
+      renderedData: null,
       itemsPerPage: 12,
       searchTerm: '',
       activePage: 1
@@ -24,10 +25,24 @@ class CustomersMainContent extends Component {
   componentWillMount() {
     const { data, itemsPerPage, activePage } = this.state;
     const copyOfData = Object.assign([], data);
+    this.setState({ renderedData: copyOfData });
+  }
   
-    const tempData = copyOfData.slice(0, 1 * itemsPerPage);
-  
-    this.setState({ paginatedData: tempData });
+  componentWillReceiveProps(nextProps) {
+    
+    if(nextProps.locations_filter.length) {
+      let searchedLocations = [];
+      nextProps.locations_filter.map((el, index) => {
+        const tempLocations = this.state.data.filter(item => {
+          return item.location === nextProps.locations_filter[index].city
+        });
+        searchedLocations = searchedLocations.concat(tempLocations);
+      });
+      this.setState({ renderedData: searchedLocations })
+    } else {
+      this.setState({ renderedData: this.state.data })
+    }
+    
   }
   
 
@@ -37,19 +52,16 @@ class CustomersMainContent extends Component {
   
   
   handlePageChange(pageNumber) {
-    const { data, itemsPerPage } = this.state;
-    const copyOfData = Object.assign([], data);
-    
-    const tempData = copyOfData.slice(itemsPerPage * (pageNumber - 1), pageNumber * itemsPerPage);
-      
-    this.setState({ paginatedData: tempData, activePage: pageNumber })
+    this.setState({ activePage: pageNumber })
   }
 
 
   render() {
-    const filteredData = this.state.paginatedData.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS));
+    const renderedData = this.state.renderedData.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS));
     
     const { data, itemsPerPage, activePage } = this.state;
+    
+    const pageRangeDisplayed = Math.ceil(renderedData.length / itemsPerPage);
     
     return (
       <div className="CUSTOMERS_MAIN_CONTAINER">
@@ -86,7 +98,7 @@ class CustomersMainContent extends Component {
           
           
           <tbody>
-            {filteredData.map(data => {
+            {renderedData.slice(itemsPerPage * (activePage - 1), activePage * itemsPerPage).map(data => {
               return (
                 <tr className="CUSTOMERS_TABLE_BODY" key={data.customer_ID}>
                   <td> <span><i className="far fa-question-circle"></i></span> {data.customer_ID}</td>
@@ -114,7 +126,7 @@ class CustomersMainContent extends Component {
             activePage={activePage}
             itemsCountPerPage={itemsPerPage}
             totalItemsCount={data.length}
-            pageRangeDisplayed={10}
+            pageRangeDisplayed={pageRangeDisplayed}
             prevPageText={'Prev'}
             nextPageText={'Next'}
             itemClass={'customers_pagination_item_class'}
@@ -135,7 +147,13 @@ class CustomersMainContent extends Component {
   }
 }
 
-export default CustomersMainContent
+const mapStateToProps = state => {
+  return {
+    locations_filter: state.locations_filter
+  };
+}
+
+export default connect(mapStateToProps)(CustomersMainContent);
 
 
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import InputRange from 'react-input-range';
 import 'react-input-range/lib/css/index.css';
@@ -6,18 +7,24 @@ import 'react-input-range/lib/css/index.css';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 
+import * as ActionCreators from '../../../actions/filters'
+
 import { cities } from '../../../mocks/cities.js';
+import { reduced_cities } from '../../../mocks/reduced_cities.js';
+
+
 
 
 
 class CustomersFilters extends Component {
   constructor(props) {
     super(props);
-
+    
     this.state = {
       database_cource: "Other Database",
       location: null,
-      locations_array: [{'city': 'Chicago', 'state': 'Illinois'},{'city': 'Los Angeles', 'state': 'California'}],
+      //locations_array: [{'city': 'Chicago', 'state': 'Illinois'},{'city': 'Los Angeles', 'state': 'California'}],
+      locations_array: [],
       gender: "All",
       
       age_range_value: {
@@ -40,6 +47,7 @@ class CustomersFilters extends Component {
       }
     };
     
+    //this.handleLocationsSearch = this.handleLocationsSearch.bind(this);
   }
   
   componentWillMount() {
@@ -58,15 +66,15 @@ class CustomersFilters extends Component {
   
   
   handleLocationsSearch = (location) => {
-    console.log(location);
+    this.props.dispatch(ActionCreators.addLocationFilter(location));
+    
     this.setState({ locations_array: [...this.state.locations_array, location] }, () => {
       console.log(this.state.locations_array);
     });
   }
   
   removeLocation(index, e) {
-    const tempLocations_array = this.state.locations_array.splice(index, 1);
-    this.setState({ locations_array: this.state.locations_array });
+    this.props.dispatch(ActionCreators.removeLocationFilter(index));
   }
   
   
@@ -94,7 +102,7 @@ class CustomersFilters extends Component {
       end_date 
     } = this.state;
     
-    
+    //console.log(this)
     
     return (
       <div className="CUSTOMERS_FILTERS_CONTAINER">
@@ -156,7 +164,7 @@ class CustomersFilters extends Component {
               labelKey="city"
               placeholder="Search"
               onChange={this.handleLocationsSearch.bind(this)}
-              options={cities}
+              options={reduced_cities}
             />
             <span><i className="fas fa-search"></i></span>
           </div>
@@ -164,7 +172,7 @@ class CustomersFilters extends Component {
           
           
           {
-            locations_array.map((item, index) => (
+            this.props.locations_filter.map((item, index) => (
               <div key={item.city} className="filter_locations_icon_and_text">
                 <div>
                   <span><i className="far fa-question-circle"></i></span>
@@ -400,4 +408,10 @@ class CustomersFilters extends Component {
   }
 }
 
-export default CustomersFilters
+const mapStateToProps = state => {
+  return {
+    locations_filter: state.locations_filter
+  };
+}
+
+export default connect(mapStateToProps)(CustomersFilters);
