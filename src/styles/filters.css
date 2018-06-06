@@ -42,15 +42,49 @@
 .filter_icon_and_text_and_gray_text {
   display: flex;
   justify-content: flex-start;
-  align-items: flex-end;
+  align-items: center;
   margin: 10px auto;
 }
 
-.filter_icon_and_text_and_gray_text > span:nth-child(1) {
-  padding-right: 6px;
-  font-size: 14px;
+.filter_checkbox {
+  -webkit-appearance: none;
+	background-color: #fafafa;
+	border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	padding: 9px;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
 }
+
+.filter_checkbox:active, .filter_checkbox:checked:active {
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+  outline: none;
+}
+
+.filter_checkbox:checked {
+	background-color: #66faaa;
+	border: 1px solid #adb8c0;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+	color: #99a1a7;
+  outline: none;
+}
+
+.filter_checkbox:checked:after {
+	content: '\2714';
+	font-size: 14px;
+	position: absolute;
+	top: 0px;
+	left: 3px;
+	color: #fff;
+}
+
+.filter_checkbox:focus{
+  outline:0;
+}
+
 .filter_icon_and_text_and_gray_text > span:nth-child(2) {
+  padding-left: 3px;
   padding-right: 6px;
   font-size: 12px;
   font-weight: 500;
@@ -77,21 +111,14 @@
 }
 
 .filter_locations_icon_and_text > div:nth-child(1) {
-  
-}
-
-.filter_locations_icon_and_text > div:nth-child(1) > span:nth-child(1) {
-  padding-right: 6px;
-  font-size: 14px;
+  display: flex;
+  align-items: center;
 }
 
 .filter_locations_icon_and_text > div:nth-child(1) > span:nth-child(2) {
+  padding-left: 3px;
   font-size: 12px;
   font-weight: 500;
-}
-
-.filter_locations_icon_and_text > div:nth-child(2) {
-  
 }
 
 .filter_locations_icon_and_text > div:nth-child(2) {
@@ -110,15 +137,12 @@
 .filter_icon_and_text {
   display: flex;
   justify-content: flex-start;
-  align-items: flex-end;
+  align-items: center;
   margin: 10px auto;
 }
 
-.filter_icon_and_text > span:nth-child(1) {
-  padding-right: 6px;
-  font-size: 14px;
-}
 .filter_icon_and_text > span:nth-child(2) {
+  padding-left: 3px;
   font-size: 12px;
   font-weight: 500;
 }

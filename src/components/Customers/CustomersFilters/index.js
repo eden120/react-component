@@ -21,12 +21,24 @@ class CustomersFilters extends Component {
     super(props);
     
     this.state = {
+      profile_source: {
+        all: false,
+        allOptedIn: false,
+        otherDatabases: false
+      },
       database_cource: "Other Database",
       location: null,
-      //locations_array: [{'city': 'Chicago', 'state': 'Illinois'},{'city': 'Los Angeles', 'state': 'California'}],
-      locations_array: [],
-      gender: "All",
-      
+      dayparts: {
+        breakfest: false,
+        lunch: false,
+        dinner: false,
+        afternoon: false
+      },
+      channel: {
+        onlineOrdering: false,
+        orderAhead: false,
+        delivery: false
+      },
       age_range_value: {
         min: 18,
         max: 100
@@ -34,6 +46,18 @@ class CustomersFilters extends Component {
       income_range_value: {
         min: 0,
         max: 250
+      },
+      gender: "All",
+      activenessLevel: {
+        heavy: false,
+        medium: false,
+        light: false,
+        new: false
+      },
+      loyaltyTiers: {
+        platinum: false,
+        gold: false,
+        silver: false
       },
       start_date: "",
       end_date: "",
@@ -46,13 +70,6 @@ class CustomersFilters extends Component {
         max: 100
       }
     };
-    
-    //this.handleLocationsSearch = this.handleLocationsSearch.bind(this);
-  }
-  
-  componentWillMount() {
-    // console.log("cities");
-    // console.log(cities);
   }
   
   
@@ -67,10 +84,6 @@ class CustomersFilters extends Component {
   
   handleLocationsSearch = (location) => {
     this.props.dispatch(ActionCreators.addLocationFilter(location));
-    
-    this.setState({ locations_array: [...this.state.locations_array, location] }, () => {
-      console.log(this.state.locations_array);
-    });
   }
   
   removeLocation(index, e) {
@@ -87,22 +100,56 @@ class CustomersFilters extends Component {
   }
   
   
+  handleCheckBoxProfileSource(e) {
+    const { profile_source } = this.state;
+    const updated = { ...profile_source, [e.target.name]: e.target.checked };
+    this.setState({ profile_source: updated });
+  }
+  
+  handleCheckBoxDayparts(e) {
+    const { dayparts } = this.state;
+    const updated = { ...dayparts, [e.target.name]: e.target.checked };
+    this.setState({ dayparts: updated });
+  }
+  
+  handleCheckBoxChanel(e) {
+    const { channel } = this.state;
+    const updated = { ...channel, [e.target.name]: e.target.checked };
+    this.setState({ channel: updated });
+  }
+  
+  handleCheckBoxaAtivenessLevel(e) {
+    const { activenessLevel } = this.state;
+    const updated = { ...activenessLevel, [e.target.name]: e.target.checked };
+    this.setState({ activenessLevel: updated });
+  }
+  
+  handleCheckBoxLoyaltyTiers(e) {
+    const { loyaltyTiers } = this.state;
+    const updated = { ...loyaltyTiers, [e.target.name]: e.target.checked };
+    this.setState({ loyaltyTiers: updated });
+  }
+  
   
   render() {
     const { 
-      database_cource, 
-      location, 
-      locations_array, 
-      gender, 
-      sales_range_value, 
-      transactions_range_value, 
-      age_range_value, 
+      profile_source,
+      database_cource,
+      location,
+      locations_array,
+      dayparts,
+      channel,
+      age_range_value,
       income_range_value,
-      start_date, 
-      end_date 
+      gender,
+      activenessLevel,
+      loyaltyTiers,
+      start_date,
+      end_date,
+      sales_range_value,
+      transactions_range_value
     } = this.state;
     
-    //console.log(this)
     
     return (
       <div className="CUSTOMERS_FILTERS_CONTAINER">
@@ -120,19 +167,19 @@ class CustomersFilters extends Component {
           </div>
           
           <div className="filter_icon_and_text_and_gray_text">
-            <span><i className="far fa-question-circle"></i></span>
+            <input type="checkbox" name="all" className="filter_checkbox" checked={profile_source.all} onChange={this.handleCheckBoxProfileSource.bind(this)} />
             <span>All</span>
             <span>(23M+)</span>
           </div>
           
           <div className="filter_icon_and_text_and_gray_text">
-            <span><i className="far fa-question-circle"></i></span>
+            <input type="checkbox" name="allOptedIn" className="filter_checkbox" checked={profile_source.allOptedIn} onChange={this.handleCheckBoxProfileSource.bind(this)} />
             <span>All Opted in</span>
             <span>(2.7M)</span>
           </div>
           
           <div className="filter_select">
-            <span><i className="far fa-question-circle"></i></span>
+            <input type="checkbox" name="otherDatabases" className="filter_checkbox" value={profile_source.otherDatabases} onChange={this.handleCheckBoxProfileSource.bind(this)} />
             
             <Select
               value={database_cource}
@@ -175,7 +222,7 @@ class CustomersFilters extends Component {
             this.props.locations_filter.map((item, index) => (
               <div key={item.city} className="filter_locations_icon_and_text">
                 <div>
-                  <span><i className="far fa-question-circle"></i></span>
+                  <input type="checkbox" className="filter_checkbox" checked={true} readOnly />
                   <span>{item.city}</span>
                 </div>
                 <div onClick={this.removeLocation.bind(this, index)}>&times;</div>
@@ -199,25 +246,25 @@ class CustomersFilters extends Component {
           </div>
           
           <div className="filter_icon_and_text_and_gray_text">
-            <span><i className="far fa-question-circle"></i></span>
+            <input type="checkbox" name="breakfest" className="filter_checkbox" checked={dayparts.breakfest} onChange={this.handleCheckBoxDayparts.bind(this)} />
             <span>Breakfest</span>
             <span>(open to 11am)</span>
           </div>
           
           <div className="filter_icon_and_text_and_gray_text">
-            <span><i className="far fa-question-circle"></i></span>
+            <input type="checkbox" name="lunch" className="filter_checkbox" checked={dayparts.lunch} onChange={this.handleCheckBoxDayparts.bind(this)} />
             <span>Lunch</span>
             <span>(11am to 2pm)</span>
           </div>
           
           <div className="filter_icon_and_text_and_gray_text">
-            <span><i className="far fa-question-circle"></i></span>
+            <input type="checkbox" name="dinner" className="filter_checkbox" checked={dayparts.dinner} onChange={this.handleCheckBoxDayparts.bind(this)} />
             <span>Dinner</span>
             <span>(5pm to close)</span>
           </div>
           
           <div className="filter_icon_and_text_and_gray_text">
-            <span><i className="far fa-question-circle"></i></span>
+            <input type="checkbox" name="afternoon" className="filter_checkbox" checked={dayparts.afternoon} onChange={this.handleCheckBoxDayparts.bind(this)} />
             <span>Afternoon</span>
             <span>(2pm to 5am)</span>
           </div>
@@ -227,17 +274,17 @@ class CustomersFilters extends Component {
           </div>
           
           <div className="filter_icon_and_text">
-            <span><i className="far fa-question-circle"></i></span>
+            <input type="checkbox" name="onlineOrdering" className="filter_checkbox" checked={channel.onlineOrdering} onChange={this.handleCheckBoxChanel.bind(this)} />
             <span>Online Ordering</span>
           </div>
           
           <div className="filter_icon_and_text">
-            <span><i className="far fa-question-circle"></i></span>
+            <input type="checkbox" name="orderAhead" className="filter_checkbox" checked={channel.orderAhead} onChange={this.handleCheckBoxChanel.bind(this)} />
             <span>Order Ahead</span>
           </div>
           
           <div className="filter_icon_and_text">
-            <span><i className="far fa-question-circle"></i></span>
+            <input type="checkbox" name="delivery" className="filter_checkbox" checked={channel.delivery} onChange={this.handleCheckBoxChanel.bind(this)} />
             <span>Delivery</span>
           </div>
           
@@ -328,22 +375,22 @@ class CustomersFilters extends Component {
           </div>
           
           <div className="filter_icon_and_text">
-            <span><i className="far fa-question-circle"></i></span>
+            <input type="checkbox" name="heavy" className="filter_checkbox" checked={activenessLevel.heavy} onChange={this.handleCheckBoxaAtivenessLevel.bind(this)} />
             <span>Heavy</span>
           </div>
           
           <div className="filter_icon_and_text">
-            <span><i className="far fa-question-circle"></i></span>
+            <input type="checkbox" name="medium" className="filter_checkbox" checked={activenessLevel.medium} onChange={this.handleCheckBoxaAtivenessLevel.bind(this)} />
             <span>Medium</span>
           </div>
           
           <div className="filter_icon_and_text">
-            <span><i className="far fa-question-circle"></i></span>
+            <input type="checkbox" name="light" className="filter_checkbox" checked={activenessLevel.light} onChange={this.handleCheckBoxaAtivenessLevel.bind(this)} />
             <span>Light</span>
           </div>
           
           <div className="filter_icon_and_text">
-            <span><i className="far fa-question-circle"></i></span>
+            <input type="checkbox" name="new" className="filter_checkbox" checked={activenessLevel.new} onChange={this.handleCheckBoxaAtivenessLevel.bind(this)} />
             <span>New</span>
           </div>
           
@@ -352,17 +399,17 @@ class CustomersFilters extends Component {
           </div>
           
           <div className="filter_icon_and_text">
-            <span><i className="far fa-question-circle"></i></span>
+            <input type="checkbox" name="platinum" className="filter_checkbox" checked={loyaltyTiers.platinum} onChange={this.handleCheckBoxLoyaltyTiers.bind(this)} />
             <span>Platinum</span>
           </div>
           
           <div className="filter_icon_and_text">
-            <span><i className="far fa-question-circle"></i></span>
+            <input type="checkbox" name="gold" className="filter_checkbox" checked={loyaltyTiers.gold} onChange={this.handleCheckBoxLoyaltyTiers.bind(this)} />
             <span>Gold</span>
           </div>
           
           <div className="filter_icon_and_text">
-            <span><i className="far fa-question-circle"></i></span>
+            <input type="checkbox" name="silver" className="filter_checkbox" checked={loyaltyTiers.silver} onChange={this.handleCheckBoxLoyaltyTiers.bind(this)} />
             <span>Silver</span>
           </div>
           
