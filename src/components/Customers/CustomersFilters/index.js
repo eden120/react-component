@@ -10,7 +10,7 @@ import 'react-select/dist/react-select.css';
 import * as ActionCreators from '../../../actions/filters'
 
 import { cities } from '../../../mocks/cities.js';
-import { reduced_cities } from '../../../mocks/reduced_cities.js';
+import data from '../../../mocks/data.json';
 
 
 
@@ -21,6 +21,7 @@ class CustomersFilters extends Component {
     super(props);
     
     this.state = {
+      uniqueLocations: [],
       profile_source: {
         all: false,
         allOptedIn: false,
@@ -72,6 +73,18 @@ class CustomersFilters extends Component {
     };
   }
   
+  componentWillMount() {
+    // extracting unique cities from json data
+    const uniqueLocations = [...new Set(data.map(obj => obj.location))];
+    
+    // converting array of strings to array of objects
+    const uniqueLocationObjects = uniqueLocations.map((item, index) => {
+      return { city: item, index: index }
+    });
+    
+    this.setState({ uniqueLocations: uniqueLocationObjects });
+  }
+  
   
   handleChangeSource = (database_cource) => {
     this.setState({ database_cource });
@@ -84,10 +97,19 @@ class CustomersFilters extends Component {
   
   handleLocationsSearch = (location) => {
     this.props.dispatch(ActionCreators.addLocationFilter(location));
+    
+    const selectedExtracted = this.state.uniqueLocations.filter(item => item.city !== location.city);
+    
+    this.setState({ uniqueLocations: selectedExtracted })
   }
   
-  removeLocation(index, e) {
+  removeLocation(index, item, e) {
     this.props.dispatch(ActionCreators.removeLocationFilter(index));
+    
+    const { uniqueLocations } = this.state;
+    const insertedExtractedCity = [...uniqueLocations.slice(0, item.index), item, ...uniqueLocations.slice(item.index)];
+    
+    this.setState({ uniqueLocations: insertedExtractedCity });
   }
   
   
@@ -133,6 +155,7 @@ class CustomersFilters extends Component {
   
   render() {
     const { 
+      uniqueLocations,
       profile_source,
       database_cource,
       location,
@@ -149,7 +172,6 @@ class CustomersFilters extends Component {
       sales_range_value,
       transactions_range_value
     } = this.state;
-    
     
     return (
       <div className="CUSTOMERS_FILTERS_CONTAINER">
@@ -211,7 +233,7 @@ class CustomersFilters extends Component {
               labelKey="city"
               placeholder="Search"
               onChange={this.handleLocationsSearch.bind(this)}
-              options={reduced_cities}
+              options={uniqueLocations}
             />
             <span><i className="fas fa-search"></i></span>
           </div>
@@ -225,7 +247,7 @@ class CustomersFilters extends Component {
                   <input type="checkbox" className="filter_checkbox" checked={true} readOnly />
                   <span>{item.city}</span>
                 </div>
-                <div onClick={this.removeLocation.bind(this, index)}>&times;</div>
+                <div onClick={this.removeLocation.bind(this, index, item)}>&times;</div>
               </div>
             ))
           }
