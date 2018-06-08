@@ -49,12 +49,6 @@
 
 /***************************************************/
 
-/* .customers_search_container {
-  display: flex;
-  justify-content: flex-start;
-  width: 300px;
-} */
-
 
 .customers_search_container {
   position: relative;
@@ -85,43 +79,6 @@
   font-size: 13px;
   color: #a1a1a1;
 }
-
-
-/* .customers_search_container .Select-multi-value-wrapper {
-  border: 1px solid #cecece;
-  border-radius: 3px;
-  background-color: #f9f9f9;
-}
-
-.customers_search_container .Select-control {
-  overflow: visible !important;
-}
-
-.Select--multi .Select-value {
-  display: block !important;
-}
-
-.customers_search_container .Select-value {
-  display: flex !important;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  margin-right: 5px;
-  margin-bottom: 5px;
-}
-
-
-.apply_button_container > button {
-  margin-left: 5px;
-  color: #666666;
-  padding: 5px 10px;
-  font-size: 12px;
-  border: 1px solid #cecece;
-  border-radius: 5px;
-}
-
-.apply_button_container > button:hover {
-  cursor: pointer;
-} */
 
 
 /***************************************************/

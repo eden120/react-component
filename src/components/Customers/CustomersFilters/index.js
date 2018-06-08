@@ -229,7 +229,7 @@ class CustomersFilters extends Component {
           <div className="locations_search_input_container">
             <Select
               value={location}
-              valueKey="city" 
+              valueKey="city"
               labelKey="city"
               placeholder="Search"
               onChange={this.handleLocationsSearch.bind(this)}
